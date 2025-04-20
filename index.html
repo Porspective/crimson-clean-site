@@ -151,10 +151,7 @@
       transition: transform 0.3s;
       display: block;
     }
-    .services-grid a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+    
     .hero a {
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
@@ -169,6 +166,25 @@
       transform: translateY(-2px);
       text-decoration: underline;
     }
+    .services-grid img {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .services-grid img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .services-grid .service-label {
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .services-grid a:hover .service-label {
+  transform: translateY(-2px);
+  text-decoration: underline;
+  color: #b11226;
+}
 </style>
 </head>
 <body>
@@ -199,10 +215,10 @@
 <section class="section" id="services">
   <h2>OUR SERVICES</h2>
   <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: auto;">
-    <a href="driveway-cleaning.html" style="text-decoration: none; color: inherit;">
-      <img src="driveway.png" alt="Driveway Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
-      <div class="service-label">Driveway Cleaning</div>
-    </a>
+    <a href="driveway-cleaning.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+  <img src="driveway.png" alt="Driveway Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
+  <div class="service-label" style="margin-top: 0.5rem; text-align: center;">Driveway Cleaning</div>
+</a>
     <a href="trash-can-cleaning.html" style="text-decoration: none; color: inherit;">
       <img src="trashcan1.png" alt="Trash Can Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
       <div class="service-label">Trash Can Cleaning</div>
@@ -211,14 +227,14 @@
       <img src="concrete.png" alt="Concrete Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
       <div class="service-label">Concrete Cleaning</div>
     </a>
-    <a href="house-washing.html" style="text-decoration: none; color: inherit;">
-      <img src="house.png" alt="House Washing" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
-      <div class="service-label">House Washing</div>
-    </a>
-    <a href="deck-cleaning.html" style="text-decoration: none; color: inherit;">
-      <img src="deck.png" alt="Deck Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
-      <div class="service-label">Deck Cleaning</div>
-    </a>
+    <a href="house-washing.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+  <img src="house.png" alt="House Washing" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
+  <div class="service-label" style="margin-top: 0.5rem; text-align: center;">House Washing</div>
+</a>
+    <a href="deck-cleaning.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+  <img src="deck.png" alt="Deck Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
+  <div class="service-label" style="margin-top: 0.5rem; text-align: center;">Deck Cleaning</div>
+</a>
     <a href="commercial-cleaning.html" style="text-decoration: none; color: inherit;">
       <img src="commercial.png" alt="Commercial Cleaning" style="width: 100%; border-radius: 8px; border: 2px solid #b11226;">
       <div class="service-label">Commercial Cleaning</div>
@@ -325,5 +341,6 @@
   </script>
 </body>
 </html>
+
 
 
