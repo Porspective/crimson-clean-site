@@ -4,22 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crimson Clean Co. | Student Pressure Washing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    :root {
+      --primary: #b11226;
+      --bg: #ffffff;
+      --text: #111;
+      --card-bg: #f8f8f8;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f8f8f8;
+      --card-bg: #1e1e1e;
+    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #111;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 2rem;
-      background-color: #b11226;
+      background-color: var(--primary);
     }
     header img {
-      height: 100px;
+      height: 80px;
     }
     header nav a {
       margin-left: 2rem;
@@ -27,10 +41,19 @@
       color: white;
       font-weight: bold;
     }
+    .dark-toggle {
+      background: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 1rem;
+    }
     .hero {
       position: relative;
       text-align: center;
-      padding: 4rem 2rem 3rem;
+      padding: 6rem 2rem 5rem;
       background-image: url('background_website1.png');
       background-size: cover;
       background-position: center;
@@ -38,10 +61,7 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background-color: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
@@ -54,60 +74,33 @@
       margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero a {
-      background-color: #b11226;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
       margin: auto;
     }
-    .services-grid img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .service-label {
-      margin-top: 0.5rem;
+    .hero a {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 1.6rem;
       font-weight: bold;
-      font-size: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
     }
     .about {
       max-width: 800px;
       margin: auto;
-      font-size: 1rem;
-      line-height: 1.6;
+      text-align: left;
     }
-    .why-section {
-      background-color: #b11226;
+    .footer-links a {
+      margin: 0 1rem;
       color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .why-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      text-decoration: none;
     }
     .why-grid {
       display: grid;
@@ -115,152 +108,171 @@
       gap: 2rem;
       max-width: 1000px;
       margin: auto;
-      font-size: 1.1rem;
     }
-    .why-item h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
-    footer {
-      background-color: rgba(0, 0, 0, 255);
-      color: white;
+    .why-item {
       padding: 2rem;
-      font-size: 0.9rem;
-      position: relative;
-    }
-    footer .footer-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    footer .footer-info {
-      text-align: center;
-      max-width: 800px;
-    }
-    footer .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    footer .footer-links a {
+      border-radius: 12px;
       color: white;
-      text-decoration: none;
+      transition: transform 0.3s;
     }
-    .footer-img {
-      position: absolute;
-      right: 0;
-      bottom: 2rem;
-      height: calc(100% - 4rem);
-      object-fit: contain;
+    .why-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="better pwasher logo.png" alt="Crimson Clean Co. Logo">
+    <img src="better pwasher logo.png" alt="Logo">
     <nav>
       <a href="#services">Services</a>
-      <a href="#about">About Us</a>
-      <a href="quote.html">Request a Quote</a>
-      <a href="tel:5805046396">(580) 504-6396</a>
+      <a href="#about">About</a>
+      <a href="#quote">Request Quote</a>
+      <button class="dark-toggle" onclick="toggleTheme()">Toggle Mode</button>
     </nav>
   </header>
 
-  <div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>PROFESSIONAL<br><strong>PRESSURE WASHING</strong></h1>
-      <p>We're a small, OU student-run company raising money for our tuition while donating 10% of all proceeds to St. Jude.</p>
-      <a href="quote.html">REQUEST A QUOTE</a>
+  
+
+</section>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content" data-aos="fade-up">
+    <h1>PROFESSIONAL<br><strong>PRESSURE WASHING</strong></h1>
+    <p>OU student-run company raising tuition funds while donating 10% to St. Jude.</p>
+    <a href="#quote" style="background-color: #b11226; color: white; padding: 0.8rem 1.6rem; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 1.5rem;">REQUEST A QUOTE</a>
+    <a href="tel:5805046396" style="background-color: white; color: #b11226; padding: 0.8rem 1.6rem; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 1rem;">CALL (580) 504-6396</a>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2>OUR SERVICES</h2>
+  <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: auto;">
+    <a href="driveway-cleaning.html" style="text-decoration: none; color: inherit;">
+      <img src="driveway.png" alt="Driveway Cleaning" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">Driveway Cleaning</div>
+    </a>
+    <a href="trash-can-cleaning.html" style="text-decoration: none; color: inherit;">
+      <img src="trashcan1.png" alt="Trash Can Cleaning" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">Trash Can Cleaning</div>
+    </a>
+    <a href="concrete-cleaning.html" style="text-decoration: none; color: inherit;">
+      <img src="concrete.png" alt="Concrete Cleaning" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">Concrete Cleaning</div>
+    </a>
+    <a href="house-washing.html" style="text-decoration: none; color: inherit;">
+      <img src="house.png" alt="House Washing" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">House Washing</div>
+    </a>
+    <a href="deck-cleaning.html" style="text-decoration: none; color: inherit;">
+      <img src="deck.png" alt="Deck Cleaning" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">Deck Cleaning</div>
+    </a>
+    <a href="commercial-cleaning.html" style="text-decoration: none; color: inherit;">
+      <img src="commercial.png" alt="Commercial Cleaning" style="width: 100%; border-radius: 8px;">
+      <div class="service-label">Commercial Cleaning</div>
+    </a>
+  </div>
+</section>
+
+  
+
+  <section class="why-section section">
+  <h2 style="margin-bottom: 2rem;">WHY CHOOSE CRIMSON CLEAN CO.</h2>
+  <div class="why-grid">
+    <div class="why-item" style="background-color:#b11226 !important;">
+      <h3>Years of Experience</h3>
+      <p>Our student team brings dedication and detailed care to every job, ensuring spotless results.</p>
+    </div>
+    <div class="why-item" style="background-color:#b11226;">
+      <h3>Advanced Tools</h3>
+      <p>We use professional-grade equipment to safely and effectively clean every surface.</p>
+    </div>
+    <div class="why-item" style="background-color:#b11226;">
+      <h3>Prompt Service</h3>
+      <p>Expect fast, reliable communication and flexible scheduling that works for you.</p>
+    </div>
+    <div class="why-item" style="background-color:#b11226;">
+      <h3>Satisfaction Guarantee</h3>
+      <p>Your happiness is our priority—we won’t leave until you’re satisfied with the results.</p>
+    </div>
+    <div class="why-item" style="background-color:#b11226;">
+      <h3>Locally Owned</h3>
+      <p>We’re proud OU students serving the Norman area, investing back into our community.</p>
+    </div>
+    <div class="why-item" style="background-color:#b11226;">
+      <h3>Safe & Responsible</h3>
+      <p>We use methods that are tough on dirt but safe for your property, pets, and plants.</p>
     </div>
   </div>
+</section>
 
-  <div class="section" id="services">
-    <h2>OUR SERVICES</h2>
-    <div class="services-grid">
-      <div>
-        <img src="driveway.png" alt="Driveway Cleaning">
-        <div class="service-label">DRIVEWAY CLEANING</div>
-      </div>
-      <div>
-        <img src="trashcan1.png" alt="Trash Can Cleaning">
-        <div class="service-label">TRASH CAN CLEANING</div>
-      </div>
-      <div>
-        <img src="concrete.png" alt="Concrete Cleaning">
-        <div class="service-label">CONCRETE CLEANING</div>
-      </div>
-      <div>
-        <img src="house.png" alt="House Washing">
-        <div class="service-label">HOUSE WASHING</div>
-      </div>
-      <div>
-        <img src="deck.png" alt="Deck Cleaning">
-        <div class="service-label">DECK CLEANING</div>
-      </div>
-      <div>
-        <img src="commercial.png" alt="Commercial Cleaning">
-        <div class="service-label">COMMERCIAL CLEANING</div>
-      </div>
+<section class="section" id="about">
+  <h2>ABOUT US</h2>
+  <div class="about">
+    <p>
+      We’re a student-run pressure washing company based in Norman, OK. Our mission is to deliver exceptional results while raising funds for our education and donating to children’s health causes.
+    </p>
+    <p>
+      At Crimson Clean Co., we believe in hard work, honesty, and giving back to the community. Our team of University of Oklahoma students is dedicated to delivering high-quality service to both residential and commercial clients.
+    </p>
+    <p>
+      We specialize in cleaning driveways, trash bins, decks, siding, and more, using eco-friendly methods and professional-grade equipment. We treat every job like it’s our own home and go the extra mile to ensure customer satisfaction.
+    </p>
+    <p>
+      Supporting Crimson Clean Co. means supporting local students' dreams and making a real impact on the community. We’re not just washing away dirt — we’re building futures.
+    </p>
+  </div>
+</section>
+
+  <footer style="background-color: #000; color: white; padding: 2rem; text-align: center; position: relative;">
+  <div class="footer-top">
+    <div class="footer-info">
+      <p><strong>Crimson Clean Co.</strong></p>
+      <p>Norman, OK</p>
+      <p><a href="mailto:crimson.cleanco@gmail.com" style="color: white; text-decoration: underline;">crimson.cleanco@gmail.com</a></p>
+      <p><a href="tel:5805046396" style="color: white; text-decoration: underline;">Support: (580) 504-6396</a></p>
+    </div>
+    <div class="footer-links" style="margin-top: 1rem;">
+      <a href="#services">Services</a>
+      <a href="#about">About Us</a>
+      <a href="#quote">Quote</a>
+      <a href="quote.html">Quote Page</a>
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
     </div>
   </div>
+  
+  <div style="margin-top: 2rem;">&copy; 2025 Crimson Clean Co. | OU Student-Run | crimson-clean.com</div>
+</footer>
 
-  <div class="why-section">
-    <h2>WHY CHOOSE CRIMSON CLEAN CO.</h2>
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>Years of Experience</h3>
-        <p>Our student team brings dedication and detailed care to every job, ensuring spotless results.</p>
-      </div>
-      <div class="why-item">
-        <h3>Advanced Tools</h3>
-        <p>We use professional-grade equipment to safely and effectively clean every surface.</p>
-      </div>
-      <div class="why-item">
-        <h3>Prompt Service</h3>
-        <p>Expect fast, reliable communication and flexible scheduling that works for you.</p>
-      </div>
-      <div class="why-item">
-        <h3>Satisfaction Guarantee</h3>
-        <p>Your happiness is our priority—we won’t leave until you’re satisfied with the results.</p>
-      </div>
-      <div class="why-item">
-        <h3>Locally Owned</h3>
-        <p>We’re proud OU students serving the Norman area, investing back into our community.</p>
-      </div>
-      <div class="why-item">
-        <h3>Safe & Responsible</h3>
-        <p>We use methods that are tough on dirt but safe for your property, pets, and plants.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="about">
-    <h2>ABOUT CRIMSON CLEAN CO.</h2>
-    <div class="about">
-      <p>Crimson Clean Co. provides professional, affordable exterior cleaning for our home. As OU students, we started this business to help pay for our tuition and support our education. We pride ourselves on our attention to detail, from driveways to siding, we're dedicated to delivering exceptional results.</p>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-info">
-        <p><strong>Crimson Clean Co.</strong></p>
-        <p>Norman, OK</p>
-        <p>crimson.cleanco@gmail.com</p>
-        <p>Support: 580-504-6396</p>
-      </div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="quote.html">Request a Quote</a>
-      </div>
-    </div>
-    <img src="bottum_website567.jpeg" alt="Pressure Washing" class="footer-img">
-    <div>&copy; 2025 Crimson Clean Co. | OU Student-Run | crimson-clean.com</div>
-  </footer>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const toggleTheme = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/65f4c6b98d261e1b5f692e8e/1hp5eqvph';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>
 
